@@ -24,6 +24,7 @@ export default (env: IEnvironment) => {
       filename: "[name].[contenthash:8].js", // Имя выходного файла сборки
       path: path.resolve(__dirname, "dist"), // Путь для выходного файла сборки
       clean: true,
+      assetModuleFilename: "assets/[hash][ext]",
     },
     devtool: isDev ? "inline-source-map" : false,
     devServer: isDev
@@ -34,6 +35,14 @@ export default (env: IEnvironment) => {
           liveReload: true,
         }
       : undefined,
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "css/[name].[contenthash:8].css",
+        chunkFilename: "css/[name].[contenthash:8].css",
+      }),
+      new HtmlWebpackPlugin({ template: path.resolve(__dirname, "src", "index.html") }),
+      isDev && new webpack.ProgressPlugin(),
+    ],
     module: {
       rules: [
         {
@@ -54,15 +63,6 @@ export default (env: IEnvironment) => {
     resolve: {
       extensions: [".tsx", ".ts", ".js"],
     },
-
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: "css/[name].[contenthash:8].css",
-        chunkFilename: "css/[name].[contenthash:8].css",
-      }),
-      new HtmlWebpackPlugin({ template: path.resolve(__dirname, "src", "index.html") }),
-      isDev && new webpack.ProgressPlugin(),
-    ],
   };
 
   return config;
