@@ -44,11 +44,17 @@ export default (env: IEnvironment) => {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html')
       }),
+      // new ESLintPlugin({
+      //   extensions: ['ts'],
+      //   exclude: 'node_modules',
+      //   fix: true, // Автоматически исправлять ошибки
+      //   formatter: 'stylish'
+      // }),
       new ESLintPlugin({
         extensions: ['ts'],
         exclude: 'node_modules',
-        fix: true, // Автоматически исправлять ошибки
-        formatter: 'stylish'
+        fix: process.env.NODE_ENV === 'development',
+        configType: 'flat'
       }),
       isDev && new webpack.ProgressPlugin()
     ],
