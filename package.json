@@ -7,7 +7,8 @@
     "dev": "webpack --env mode=development",
     "build": "webpack --env mode=production",
     "start": "webpack serve --env mode=development port=3000",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "type": "module",
   "author": "",
@@ -35,6 +36,7 @@
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
+    "typescript-eslint": "^8.46.1",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-config": "^7.5.0",
