@@ -9,13 +9,5 @@
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "quoteProps": "as-needed",
-  "bracketSameLine": false,
-  "overrides": [
-    {
-      "files": "*.mjs",
-      "options": {
-        "parser": "babel"
-      }
-    }
-  ]
+  "bracketSameLine": false
 }

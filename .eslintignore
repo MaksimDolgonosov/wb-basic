@@ -1,0 +1,28 @@
+# Папки
+node_modules/
+node_modules/@types/node/https.d.ts
+dist/
+build/
+coverage/
+.cache/
+
+# Файлы TypeScript деклараций
+**/*.d.ts
+
+# Конфигурационные файлы
+*.config.js
+*.config.ts
+
+# Логи и временные файлы
+*.log
+.tmp/
+temp/
+
+# Документация
+docs/
+*.md
+
+# Окружение
+.env
+.env.local
+.env.production
